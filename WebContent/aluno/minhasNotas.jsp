@@ -9,6 +9,10 @@
 </head>
 <body>
 	<h1>Minhas notas</h1>
+	<ul>
+		<h2> </h2>
+		<li><a href="/CadastroCursos/logout">logout</a></li>
+	</ul>
 	<p>${msg}</p>
 	<p>Nome do aluno: ${aluno.nome}</p>
 	<p>Média Geral: ${aluno.mediaGeral}</p>

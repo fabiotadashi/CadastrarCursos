@@ -11,6 +11,10 @@
 		<h1>Menu de opções</h1>
 		<p>${msg}</p>
 		<ul>
+			<h2> </h2>
+			<li><a href="/CadastroCursos/logout">logout</a></li>
+		</ul>
+		<ul>
 		<h2>Área administrativa</h2>
 			<li><a href="/CadastroCursos/admin/escola.jsp">Cadastro de Escolas</a></li>
 			<li><a href="/CadastroCursos/admin/curso.jsp">Cadastro de Curso</a></li>

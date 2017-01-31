@@ -10,6 +10,10 @@
 	<form>
 		<h1>Menu de opções</h1>
 		<ul>
+			<h2> </h2>
+			<li><a href="/CadastroCursos/logout">logout</a></li>
+		</ul>
+		<ul>
 			<li><a href="/CadastroCursos/admin/escola.jsp">Cadastro de Escolas</a></li>
 			<li><a href="/CadastroCursos/admin/curso.jsp">Cadastro de Curso</a></li>
 			<li><a href="/CadastroCursos/admin/professor.jsp">Cadastro de Professor</a></li>
