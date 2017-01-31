@@ -52,4 +52,5 @@ public class GenericDao<T> implements Dao<T> {
 		return entidade;
 	}
 
+
 }

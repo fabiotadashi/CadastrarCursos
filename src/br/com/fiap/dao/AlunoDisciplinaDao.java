@@ -26,4 +26,18 @@ public class AlunoDisciplinaDao extends GenericDao<AlunoDisciplina> {
 		return listaAlunoDisciplina;
 	}
 
+	public void deletarPorAlunoDisciplina(int alunoId, int disciplinaId) {
+		em = JpaUtil.getEntityManager();
+		em.getTransaction().begin();
+		Query query = em.createQuery("select ad from AlunoDisciplina ad where ad.aluno.id = :alunoId and ad.disciplina.id = :disciplinaId");
+		query.setParameter("disciplinaId", disciplinaId);
+		query.setParameter("alunoId", alunoId);
+		AlunoDisciplina singleResult = (AlunoDisciplina) query.getSingleResult();
+		if (singleResult != null){
+			em.remove(singleResult);
+			em.getTransaction().commit();
+		}
+		em.close();
+	}
+
 }

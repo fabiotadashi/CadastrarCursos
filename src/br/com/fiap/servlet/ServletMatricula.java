@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.fiap.dao.AlunoDisciplinaDao;
 import br.com.fiap.dao.GenericDao;
 import br.com.fiap.entity.AlunoDisciplina;
 import br.com.fiap.entity.Curso;
@@ -38,14 +39,16 @@ public class ServletMatricula extends HttpServlet {
 			GenericDao<Curso> cursoDao = new GenericDao<Curso>(Curso.class);
 			Curso curso = cursoDao.buscar(Integer.parseInt(request.getParameter("curso")));
 
-			GenericDao<AlunoDisciplina> dao = new GenericDao<AlunoDisciplina>(AlunoDisciplina.class);
-			
-			//TODO ao matricular de novo, apagar as disciplinas antigas
+			AlunoDisciplinaDao dao = new AlunoDisciplinaDao();
 			
 			for (Disciplina disciplina : curso.getDisciplinas()) {
 				AlunoDisciplina alunoDisciplina= new AlunoDisciplina();
 				alunoDisciplina.setAluno(aluno);
 				alunoDisciplina.setDisciplina(disciplina);
+				try {
+					dao.deletarPorAlunoDisciplina(aluno.getId(), disciplina.getId());
+				} catch (Exception e) {
+				}
 				dao.adicionar(alunoDisciplina);
 			}
 			request.setAttribute("msg", "Aluno matriculado com sucesso");
